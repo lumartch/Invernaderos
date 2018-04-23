@@ -28,5 +28,5 @@
 	  </ion-item>
 
 	</ion-list>
-	<button ion-button full (click)="clickButton()">Iniciar sesión</button>
+	<button ion-button full [disabled]="this.usuario.length == 0 || this.password.length == 0" (click)="clickButton()">Iniciar sesión</button>
 </ion-content>
