@@ -18,6 +18,7 @@ import { Http } from '@angular/http';
 export class LoginPage {
   usuario:String = "";
   password:String = "";
+  home = HomePage;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -30,18 +31,11 @@ export class LoginPage {
   }
 
   clickButton(){
-  	console.log("Se hizo click");
-    console.log(this.usuario);
-    console.log(this.password);
 
-    //this.navCtrl.setRoot(HomePage);
-
-    this.http.get("/login/?user=" + this.usuario +
-    "&pwd=" + this.password).subscribe(data =>{
+    this.http.get(`/login/?user=${this.usuario}&pwd=${this.password}`).subscribe(data =>{
       console.log("Exito");
-      console.log(data.text());
       if(data.text() == "True"){
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(this.home, {user: this.usuario, pwd: this.password});
       }
       else{
         let a = this.alerta.create({
