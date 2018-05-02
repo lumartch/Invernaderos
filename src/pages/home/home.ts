@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { CultivosPage } from '../cultivos/cultivos';
 
 @Component({
   selector: 'page-home',
@@ -10,6 +11,7 @@ export class HomePage {
   usuario:string;
   password:string;
   invernaderos:any;
+  cultivosPage = CultivosPage;
   constructor(public navCtrl: NavController,
   				public navParams: NavParams,
           private http: Http) {
@@ -17,8 +19,9 @@ export class HomePage {
           this.password = this.navParams.get('pwd');
 
           this.getInvernaderos();
+            
   }
-
+        
   getInvernaderos(){
     this.http.post("/invernaderos/", {user: this.usuario, pwd: this.password}).subscribe(
        data=>{
@@ -28,10 +31,8 @@ export class HomePage {
         console.log("Error");
     });
   }
-  
-  cambiarCultivos(i){
-    console.log(i);
-    //this.navCtrl.push(this.culivosPage);
+  cambiarCultivos(){
+  	this.navCtrl.push(this.cultivosPage);
   }
 
 }
