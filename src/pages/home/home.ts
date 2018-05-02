@@ -31,8 +31,8 @@ export class HomePage {
         console.log("Error");
     });
   }
-  cambiarCultivos(){
-  	this.navCtrl.push(this.cultivosPage);
+  cambiarCultivos(invernadero){
+  	this.navCtrl.push(this.cultivosPage, {'invernadero': invernadero});
   }
 
 }

@@ -14,12 +14,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'cultivos.html',
 })
 export class CultivosPage {
-
+  invernadero: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.invernadero = this.navParams.get("invernadero");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CultivosPage');
+  }
+  cambiarValores(){
+  	//this.navCtrl.push(this.valoresPage);
   }
 
 }
