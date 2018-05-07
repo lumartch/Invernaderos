@@ -32,4 +32,11 @@ def invernaderos():
 		u = json['user']
 		p = json['pwd']
 	return jsonify(invernaderoBD.getInvernaderos(u, p))
+
+#@app.route('/cultivos/', methods=['POST'])
+#def cultivos():
+#	if request.is_json:
+#		json = request.get_json()
+#		id_invernadero = json['id_invernadero']
+	#return jsonify()
 app.run()

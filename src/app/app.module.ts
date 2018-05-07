@@ -9,13 +9,15 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
 import { CultivosPage } from '../pages/cultivos/cultivos';
+import { ValoresPage } from '../pages/valores/valores';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    CultivosPage
+    CultivosPage,
+    ValoresPage
   ],
   imports: [
     HttpModule,
@@ -27,7 +29,8 @@ import { CultivosPage } from '../pages/cultivos/cultivos';
     MyApp,
     HomePage,
     LoginPage,
-    CultivosPage
+    CultivosPage,
+    ValoresPage
   ],
   providers: [
     StatusBar,
