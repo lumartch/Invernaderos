@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from Usuario import Usuario
 from Invernadero import Invernadero
 from Planta import Planta
+from Registro import Registro
 
 import mysql.connector
 conexion = mysql.connector.connect(user= 'lumart', password='', database= 'Invernadero')
@@ -12,6 +13,7 @@ app = Flask(__name__)
 usuarioBD = Usuario(conexion, cursor)
 invernaderoBD = Invernadero(conexion, cursor)
 plantaBD = Planta(conexion, cursor)
+registroBD = Registro(conexion, cursor)
 
 @app.route('/')
 def hola():
@@ -41,4 +43,11 @@ def cultivos():
 		json = request.get_json()
 		id_invernadero = json['id_invernadero']
 	return jsonify(plantaBD.buscar(id_invernadero))
+
+@app.route('/valores/', methods=['POST'])
+def valores():
+	if request.is_json:
+		json = request.get_json()
+		id_planta = json['id_planta']
+	return jsonify(registroBD.buscar(id_planta))
 app.run()

@@ -31,8 +31,9 @@ class Planta:
 		lista = []
 		for c in resultados:
 			cultivo = {
+				"id" : c[0],
 				"nombre" : c[1],
-				"fecha" :c[2]
+				"fecha" :c[2].isoformat()
 			}
 			lista.append(cultivo)
 		return lista

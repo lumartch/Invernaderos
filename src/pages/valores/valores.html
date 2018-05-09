@@ -7,46 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>valores</ion-title>
+    <ion-title>Valores</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-	<ion-item>
-		<ion-icon name="analytics"></ion-icon>
-		ph
-		<ion-badge item-end>246k</ion-badge>
-	</ion-item>
-	<ion-item>
-		<ion-icon name="analytics"></ion-icon>
-		ph
-		<ion-badge item-end>246k</ion-badge>
-	</ion-item>
-	<ion-item>
-		<ion-icon name="analytics"></ion-icon>
-		ph
-		<ion-badge item-end>246k</ion-badge>
-	</ion-item>
-	<ion-item>
-		<ion-icon name="analytics"></ion-icon>
-		ph
-		<ion-badge item-end>246k</ion-badge>
-	</ion-item>
-	<ion-item>
-		<ion-icon name="analytics"></ion-icon>
-		ph
-		<ion-badge item-end>246k</ion-badge>
-	</ion-item>
-	<ion-item>
-		<ion-icon name="analytics"></ion-icon>
-		ph
-		<ion-badge item-end>246k</ion-badge>
-	</ion-item>
-	<ion-item>
-		<ion-icon name="analytics"></ion-icon>
-		ph
-		<ion-badge item-end>246k</ion-badge>
-	</ion-item>
+		<ion-card *ngFor= "let r of valores">
+				<ion-item>
+						<ion-icon name="ios-leaf"></ion-icon>
+							<h2>Fecha: </h2>
+							<p>{{r.fecha}}</p>
+							<h2>Ph: <p>{{r.ph}}</p> </h2>
+							<h2>Luz: <p>{{r.luz}}</p> </h2>
+							<h2>Humedad: <p>{{r.humedad}}</p> </h2>
+							<h2>CO2: <p>{{r.co2}}</p></h2>
+						<ion-badge item-end></ion-badge>
+				</ion-item>
+			</ion-card>
 </ion-content>

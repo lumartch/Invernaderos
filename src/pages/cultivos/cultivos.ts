@@ -42,8 +42,8 @@ export class CultivosPage {
     console.log(this.id_invernadero);
   }
 
-  cambiarValores(){
-  	this.navCtrl.push(this.valoresPage);
+  cambiarValores(cultivo){
+  	this.navCtrl.push(this.valoresPage, {id_planta: cultivo['id']});
   }
 
 }
