@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from Usuario import Usuario
 from Invernadero import Invernadero
+from Planta import Planta
 
 import mysql.connector
 conexion = mysql.connector.connect(user= 'lumart', password='', database= 'Invernadero')
@@ -10,6 +11,7 @@ app = Flask(__name__)
 
 usuarioBD = Usuario(conexion, cursor)
 invernaderoBD = Invernadero(conexion, cursor)
+plantaBD = Planta(conexion, cursor)
 
 @app.route('/')
 def hola():
@@ -33,10 +35,10 @@ def invernaderos():
 		p = json['pwd']
 	return jsonify(invernaderoBD.getInvernaderos(u, p))
 
-#@app.route('/cultivos/', methods=['POST'])
-#def cultivos():
-#	if request.is_json:
-#		json = request.get_json()
-#		id_invernadero = json['id_invernadero']
-	#return jsonify()
+@app.route('/cultivos/', methods=['POST'])
+def cultivos():
+	if request.is_json:
+		json = request.get_json()
+		id_invernadero = json['id_invernadero']
+	return jsonify(plantaBD.buscar(id_invernadero))
 app.run()

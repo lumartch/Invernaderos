@@ -18,26 +18,28 @@ import { Http } from '@angular/http';
   templateUrl: 'cultivos.html',
 })
 export class CultivosPage {
-  invernadero: any;
+  id_invernadero: any;
+  cultivos: any;
 	valoresPage = ValoresPage;
 	
   constructor(public navCtrl: NavController, public navParams: NavParams,
                                                     private http: Http) {
-    this.invernadero = this.navParams.get("invernadero");
+    this.id_invernadero = this.navParams.get("id_invernadero");
+    this.getCultivos();
   }
 
-  /*getCultivos(){
-  this.http.post("/invernaderos/", {id_invernadero: this.usuario, pwd: this.password}).subscribe(
-      data=>{
-      console.log(data.json());
-      this.invernaderos = data.json();
-  },  error1=>{
-      console.log("Error");
-  });*/
+  getCultivos(){
+    this.http.post("/cultivos/", {id_invernadero : this.id_invernadero}).subscribe(
+       data=>{
+        console.log(data.json());
+        this.cultivos = data.json();
+    },  error1=>{
+        console.log("Error");
+    });
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CultivosPage');
-    console.log(this.invernadero);
+    console.log(this.id_invernadero);
   }
 
   cambiarValores(){

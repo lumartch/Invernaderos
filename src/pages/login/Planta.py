@@ -28,7 +28,14 @@ class Planta:
 		__busqueda = ("SELECT * FROM planta WHERE id_invernadero = %s")
 		self.cur.execute(__busqueda, (id_Inv, ))
 		resultados = self.cur.fetchall()
-		return resultados
+		lista = []
+		for c in resultados:
+			cultivo = {
+				"nombre" : c[1],
+				"fecha" :c[2]
+			}
+			lista.append(cultivo)
+		return lista
 
 	def mostrar(self):
 		select = ("SELECT * FROM planta")

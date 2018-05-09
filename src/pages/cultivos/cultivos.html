@@ -14,10 +14,11 @@
 
 
 <ion-content padding>
-	<ion-card>
-		<ion-item (click)="cambiarValores()">
+	<ion-card *ngFor= "let c of cultivos" (click)="cambiarValores(c)">
+		<ion-item>
 			<ion-icon name="leaf"></ion-icon>
-			<h2>Cultivos</h2>
+      <h2>{{c.nombre}}</h2>
+      <p>{{c.fecha}}</p>
 		</ion-item>
 	</ion-card>
 </ion-content>

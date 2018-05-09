@@ -32,7 +32,7 @@ export class HomePage {
     });
   }
   cambiarCultivos(invernadero){
-  	this.navCtrl.push(this.cultivosPage, {'invernadero': invernadero});
+  	this.navCtrl.push(this.cultivosPage, {'id_invernadero': invernadero["id"]});
   }
 
 }
